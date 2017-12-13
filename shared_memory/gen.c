@@ -1,6 +1,9 @@
 #include <string.h>
 #include "gen.h"
 
+//for the curious, the algorithm used is RSA
+//(with hardcoded keys)
+
 #define _gen_mod (323)
 #define _gen_priv_ex (173)
 #define _gen_pub_ex (5)
@@ -12,8 +15,7 @@ uint64_t ipowmod(uint64_t val, uint64_t pow, uint64_t mod)
 	if(pow == 1)
 		return val;
 	int res = val;
-	int i;
-	for(i=0; i<(pow-1); i++)
+	for(int i=0; i<(pow-1); i++)
 		res = (res * val) % mod;
 	return res;
 }
